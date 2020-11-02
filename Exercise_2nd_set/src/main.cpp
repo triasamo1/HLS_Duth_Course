@@ -103,7 +103,6 @@ int main(){
     std::cout << "Result:  \n" ;
     std::cout << num3 << " * " << N_cons2 <<" = " << mult2 << std::endl;
 
-
     std::cout << "\n==================EXERCISE 3=====================\n";
     // initialize ac_channels
     ac_channel<ac_int<4,false> > in;
@@ -119,13 +118,13 @@ int main(){
         in.write(input_stream_1[i]);
     }
 
-    while(in.available(1)) {
+    if(in.available(10)) {
         runlength_encode(in, out);
     }
 
     std::cout << "Waiting for data from the output channel..\n";
 
-    int encoded_data[14];
+    int encoded_data[15];
     int iter; // iterator to write down the encoded data
     iter = 0;
     while(out.available(1)) {
@@ -142,7 +141,7 @@ int main(){
     for (int i=0;i<10;i++){
         in.write(input_stream_2[i]);
     }
-    while(in.available(1)) {
+    if(in.available(10)) {
         runlength_encode(in, out);
     }
     std::cout << "Waiting for data from the output channel..\n";
@@ -156,5 +155,6 @@ int main(){
     std::cout << "\nSuccessfully received the data.\n";
 
     return 0;
+
 }
 
