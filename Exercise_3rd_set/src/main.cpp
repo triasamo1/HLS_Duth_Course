@@ -80,7 +80,7 @@ int main() {
     for (int i=0;i<2;i++){
         in_card.write(two_aces[i]);
     }
-    while(in_card.available(1)) {
+    for (int i=0;i<2;i++){
         game.run(in_card,end_round, win);
     }
     game.fresh_start(end_round, win);
@@ -89,8 +89,9 @@ int main() {
     for (int i=0;i<4;i++){
         in_card.write(over_21[i]);
     }
-    while(in_card.available(1)) {
-        game.run(in_card,end_round, win);
+
+    for (int i=0;i<4;i++){
+    	game.run(in_card,end_round, win);
     }
     game.fresh_start(end_round, win);
 
@@ -98,7 +99,7 @@ int main() {
     for (int i=0;i<5;i++){
         in_card.write(five_cards[i]);
     }
-    while(in_card.available(1)) {
+    for (int i=0;i<5;i++){
         game.run(in_card,end_round, win);
     }
     game.fresh_start(end_round, win);
@@ -107,7 +108,8 @@ int main() {
     for (int i=0;i<4;i++){
         in_card.write(exactly_21[i]);
     }
-    while(in_card.available(1)) {
+    
+    for (int i=0;i<4;i++){
         game.run(in_card,end_round, win);
     }
     game.fresh_start(end_round, win);

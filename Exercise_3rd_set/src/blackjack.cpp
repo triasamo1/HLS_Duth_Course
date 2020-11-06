@@ -12,7 +12,6 @@ BlackJack::BlackJack() {
 }
 // top-level interface
 void BlackJack::run (ac_channel<Card> &in_card, bool &end_round, bool &win) {
-    while (in_card.available(1)) {
         //Draw Card
         card_drawn = in_card.read();
         count_cards += 1;
@@ -33,7 +32,7 @@ void BlackJack::run (ac_channel<Card> &in_card, bool &end_round, bool &win) {
         //round briefing
         std::cout << "Card drawn: " << card_drawn << std::endl;
         std::cout << "Current Sum: " << sum << std::endl;
-    }
+    
     //Win-Round Check
     if( sum > 21 ){
         if (second_ace) {
