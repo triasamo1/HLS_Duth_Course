@@ -7,7 +7,7 @@ static const int M = 150;
 static const int N = 100;
 
 #pragma hls_design top
-void CCS_BLOCK(with_queue)(short (&img)[N][M], short (&out_Q)[N][M]){
+void CCS_BLOCK(with_queue)(short img[N][M], short out_Q[N][M]){
     short sum;
     short myqueue[5];
     short front = 0;  //for queue functionality
@@ -51,7 +51,7 @@ void CCS_BLOCK(with_queue)(short (&img)[N][M], short (&out_Q)[N][M]){
     }
 }
 
-void original(short (&img)[N][M], short (&out_orig)[N][M] ){
+void original(short img[N][M], short out_orig[N][M] ){
     // scan the image row by row
     // N = #row, M = #col
     short p1,p2,p3,p4,p5;
